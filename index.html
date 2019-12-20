@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/pubulic.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <title>学生幼儿保险</title>
+</head>
+<body>
+<div id="tellPage">
+    <header>
+        <!--标题-->
+        <h3 class="title"><img src="img/logo.png" alt=""></h3>
+        <!--banner-->
+        <div class="banner">
+            <img src="img/banner_1.jpg" alt="">
+        </div>
+    </header>
+    <setion>
+        <div class="Mediate">
+            <p>浙江政务服务网为方便全省孩子家长随时随地为在校学生购买一份健康成长的保障，特联合相关保险服务机构推出“学幼险”在线投保服务，足不出户、即可投保。
+                浙江政务服务网，伴你一生大小事！
+            </p>
+            <p> 浙江政务服务网，伴你一生大小事！</p>
+
+        </div>
+        <div class="Mediate_type">
+            <ul class="clear">
+                <li class="clear"><span class="lf">中国人民保险 • 学幼险  </span><p class="rg choose check"><img src="img/timg.png" alt=""></p></li>
+                <li class="clear"><span class="lf" style="color: #cccccc">中国平安保险 • 学幼险</span><p class="rg choose"></p></li>
+                <li class="clear"><span class="lf" style="color: #cccccc">中国太平洋保险 • 学幼险    </span><p class="rg choose"></p></li>
+            </ul>
+        </div>
+
+    </setion>
+
+</div>
+<footer class="footer">
+    <dl class="clear">
+        <dd class="rg enter active" id="tellPageBtns">下一步</dd>
+    </dl>
+</footer>
+</body>
+<script src="js/jquery.js"></script>
+<script src="js/mui.min.js"></script>
+<script>
+    document.getElementById('tellPageBtns').addEventListener('tap', function() {
+        //打开关于页面
+        mui.openWindow({
+            url: 'Success1.html',
+            id:'tellPageBtn'
+        });
+    });
+
+
+</script>
+</html>

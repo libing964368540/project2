@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/pubulic.css">
+    <title>学生幼儿保险</title>
+</head>
+<body>
+<div id="succeed">
+    <div class="succeed_M">
+        <div class="succeedIcon"><img src="img/sussuccIcon.png" alt=""></div>
+    </div>
+    <div class="p_wrap">
+        <p >投保成功!</p>
+        <p class="tishi">您已经成功购买中国人保财险的学生、幼儿意外伤害保险。本保险仅提供电子保单，电子保单具有法律效力，理赔时只需提供电子保单号和身份证件。具体保单信息将以短信的形式发送至您预留的手机，请注意查收！如有任何问题请拨打中国人保客服电话：0571-95518进行咨询。</p>
+        <button id="succeedBtn">确定</button>
+    </div>
+
+</div>
+</body>
+<script src="js/jquery.js"></script>
+<script src="js/mui.min.js"></script>
+<script>
+    document.getElementById('succeedBtn').addEventListener('tap', function() {
+        //打开关于页面
+        mui.openWindow({
+            url: 'index.html',
+            id:'succeedBtn'
+        });
+    });
+</script>
+</html>

@@ -1,0 +1,428 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/pubulic.css">
+    <link rel="stylesheet" href="./css/user_Message.css">
+    <link rel="stylesheet" href="./css/mui.min.css">
+    <link rel="stylesheet" href="./css/mobileSelect.css">
+    <title>学生幼儿保险</title>
+</head>
+<body>
+     <div id="user_Message">
+         <setion>
+             <div class="user_MessageWrap">
+         <h3>被保险人（学生）详细信息</h3>
+         <ul>
+             <li class="clear">
+                 <span class="lf">姓名</span>
+                 <input  id="InsuredName" type="text" class="rg InsuredName" placeholder="学生或幼儿" name="InsuredName">
+                 <a href="#popover_2" id="openPopover_1" class=""><img src="img/info.png" alt=""></a>
+             </li>
+
+             <li class="clear">
+                 <span class="lf">证件类型</span>
+                 <p class="rg InsuredIdType" data-InsuredIdType="01">身份证</p>
+             </li>
+             <li class="clear">
+                 <span class="lf">证件号</span>
+                 <input type="text" placeholder="请输入" class="rg"  onblur="tool.verify($(this),1,1)" class="InsuredIdNo" name="InsuredIdNo">
+             </li>
+             <li class="clear">
+                   <span class="lf">性别</span>
+                    <p id="sex" class="ui-alert rg InsuredSex"></p>
+              </li>
+             <li class="clear">
+                 <span class="lf">出生日期</span>
+                 <p id="birthDate" class="rg ui-alert InsuredBirthday" ></p>
+             </li>
+         </ul>
+         <h3>投保人（家长）详细信息</h3>
+         <ul>
+             <li class="clear">
+                 <span class="lf">姓名</span>
+                 <input type="text" placeholder="家长或成年学生本人" class="rg AppliName" name="AppliName" id="AppliName">
+                 <a href="#popover_1" id="openPopover" class=""><img src="img/info.png" alt=""></a>
+             </li>
+
+             <li class="clear">
+                 <span class="lf">证件类型</span>
+                 <p  class="rg AppliIdType" data-AppliIdType="01">身份证</p>
+             </li>
+             <li class="clear">
+                 <span class="lf">证件号</span>
+                 <input class="rg" type="text" placeholder="请输入" id="cardNum" onblur="tool.verify($(this),1,0)" name="AppliIdNo">
+             </li>
+             <li class="clear">
+                  <span class="lf">性别</span>
+                  <p id="Applisex" class="ui-alert rg AppliSex"></p>
+             </li>
+             <li class="clear">
+                 <span class="lf">手机号</span>
+                 <input type="number" class="rg AppliIdMobile" placeholder="请输入手机号" onblur="tool.verify($(this),2)" name="AppliIdMobile">
+             </li>
+         </ul>
+         <h3>受益人</h3>
+         <ul>
+             <li class="clear">
+                 <span class="lf">受益人</span>
+                 <p class="rg active">法定监护人</p>
+             </li>
+         </ul>
+         <h3>保险期间</h3>
+         <ul>
+             <li class="clear">
+                 <span class="lf">起保日期</span>
+                 <p class="rg StartDate ui-alert" id="start_up" style="color: #757575;">请选择时间</p>
+             </li>
+             <li class="clear">
+                 <span class="lf">终保日期</span>
+                 <p class="rg EndDate" id="stop_down"></p>
+             </li>
+         </ul>
+             </div>
+         <h3>投保人声明</h3>
+         <div class="remind">
+             <div class="message">
+                 <div style="background: #fff;color: #999;font-size: 13px;padding: 10px;"> 本人已详细阅读
+                     <a href="#middlePopover_insureNotice" id="middlePopover_clause" class="inputBlur" style="font-weight: bold">《投保须知》</a>、
+                     <a href="#middlePopover_clause" id="middlePopover_insureNotice" class="inputBlur" style="font-weight: bold">《保险条款》</a>、
+                     <a href="#middlePopover_specialAgreement" id="middlePopover_specialAgreement" class="inputBlur" style="font-weight: bold">《特别约定》</a>等内容，尤其对其中免除保险人责任的条款（包括但不限于责任免除条款、免赔额、免赔率、比例赔付或者给付等免除或者减轻保险人责任的条款）已充分理解并接受，同意以此作为订立保险合同的依据。上述所填写的内容及其他本人所填投保资料为保险合同的重要组成部分，均属事实。 </div>
+             </div>
+             <!--投保人签名-->
+             <!-- 签名文件名称 --><input type="hidden" id="fileName">
+             <!-- 签名区域是否存在签名 --><input type="hidden" id="autograph" value="0"> <input id="uuid" type="hidden" value="">
+
+         </div>
+         <div class="readBtn" id="readBtn"><i></i><span>本人已详细阅读上述内容并同意</span></div>
+         </setion>
+     </div>
+     <footer class="footer">
+         <dl class="clear">
+             <dd class="lf back">优惠价：<em id="priceB"></em><i>元</i></dd>
+             <dd class="rg enter active" id="payMoney">快速支付</dd>
+         </dl>
+     </footer>
+     <div id="popover_1" class="mui-popover">
+          <p style="color: #747474;padding: 5px">若被保险人为未成年人,投保人应为其父母；若被保险人为成年人，则其本人或对其具有保险利益的人可作为投保人。</p>
+     </div>
+     <div id="popover_2" class="mui-popover">
+         <p style="color: #747474;padding: 5px">被保险人为满足投保条件的学生、幼儿。</p>
+     </div>
+     <div id="succeed" style="display: none">
+         <div class="succeed_M">
+             <div class="succeedIcon"><img src="img/sussuccIcon.png" alt=""></div>
+             <p>投保成功!</p>
+             <button>确定</button>
+         </div>
+
+     </div>
+     <!--加载-->
+     <div id="loading" style="display: none">
+         <div class="zhezhao">
+             <div class="back"></div>
+             <div class="Submit_M"></div>
+             <div class="content_M">
+                 <span class="mui-spinner"></span>
+                 <!--<span class="content_T">提交中...</span>-->
+             </div>
+         </div>
+     </div>
+     <!--投保须知-->
+     <div id="middlePopover_insureNoticeS" style="display: none">
+         <div class="notice_content">
+             <h3>《保险条款》</h3>
+             <ul>
+                 <li>一、未成年学生、幼儿必须由父母投保。</li>
+                 <li> 二、未成年人保险金额特别说明被保险人不满10周岁的，死亡保险金额不超过人民币20万元；被保险人已满10周岁但未满18周岁的，死亡保险金额不超过人民币50万元。具体内容以中国保监会关于未成年人死亡保险金额的有关规定为准（《中国保监会关于父母为其未成年子女投保以死亡为给付保险金条件人身保险有关问题的通知》（保监发〔2015〕90号））。</li>
+             </ul>
+         </div>
+         <div class="back_btn" onclick="user_Message.close()">返回</div>
+     </div>
+     <!--保险条款-->
+     <div id="middlePopover_clauseS" style="display: none">
+
+         <div class="notice_content">
+             <h3>《投保须知》</h3>
+             <ul>
+                 <li>1.学生、幼儿意外伤害保险条款</li>（<a onclick="user_Message.jump('http://www.epicc.com.cn/clauses_for_wap/tiaokuan/060050.pdf')">点击查看</a>）
+                 <li>2.附加学生、幼儿住院医疗保险条款（<a onclick="user_Message.jump('http://www.epicc.com.cn/clauses_for_wap/tiaokuan/070057.pdf')">点击查看</a>）</li>
+                 <li>3.附加学生、幼儿疾病身故保险条款（2009版）（<a onclick="user_Message.jump('http://www.epicc.com.cn/clauses_for_wap/tiaokuan/070007.pdf')">点击查看</a>）</li>
+                 <li>4.附加学生、幼儿意外伤害门诊急诊医疗保险条款（2009版)（<a onclick="user_Message.jump('http://www.epicc.com.cn/clauses_for_wap/tiaokuan/070055.pdf')">点击查看</a>）</li>
+                 <li>5.附加学生、幼儿意外伤害美容缝合、牙齿修复医疗保险条款</li>
+             </ul>
+         </div>
+         <div class="back_btn" onclick="user_Message.close()">返回</div>
+     </div>
+     <!--特别约定-->
+     <div id="middlePopover_specialAgreementS" style="display: none">
+         <div class="notice_content">
+             <h3>《特别约定》</h3>
+             <ul>
+                 <li>1、疾病身故或疾病住院等待期为90天（续保者不受等待期限制）。</li>
+                 <li>2、必须在二级以上（含）医院或者保险人认可的医疗机构进行治疗，实际支出的符合当地学生儿童基本医疗保险支付范围的意外伤害门、急诊费用每次事故免赔额50元，90%比例给付医疗保险金。由意外伤害引起的牙齿缺损致烤瓷牙、种植牙或镶牙等牙齿修复；由意外伤害引起的清创美容缝合治疗；由意外伤害引起的狂犬疫苗注射治疗，包含在本合同保险责任内。以上三类治疗所实际发生并支出的医疗费用（含进口及自理自费）本公司在扣除当地学生儿童基本医疗保险和其他途径已经补偿或给付部分后及50元免赔额后，对其余按80%给付。其中牙齿修复治疗，每颗牙最高赔付不超过3000元，且每个保单年度累计给付5000元为限；清创美容缝合治疗，每个保单年度累计给付以3000元为限；狂犬疫苗注射治疗，单次给付以300元为限。</li>
+                 <li>3、住院免赔额100元，赔付比例：人民币100元以上至1,000元部分50%；人民币1,000元以上至5,000元部分60%；人民币5,000元以上至10,000元部分70%；人民币10,000元以上至30,000元部分80%；人民币30,000元以上部分90%。上述医疗费用赔偿标准适用于未参加公费医疗、社会医疗保险和其他费用补偿型医疗保险的被保险人。已参加的被保险人，按90%的比例给付保险金。</li>
+                 <li>4、已参加公费医疗、社会医疗保险或其他费用补偿型医疗保险的被保险人，必须先通过公费医疗、社会医疗保险或其他费用补偿型医疗保险结算后再到我公司索赔，才能按照已参加公费医疗、社会医疗保险或其他费用补偿型医疗保险的方案获得赔付。</li>
+                 <li style="height: 50px;"></li>
+             </ul>
+         </div>
+         <div class="back_btn" onclick="user_Message.close()">返回</div>
+     </div>
+</body>
+<script src="js/jquery.js"></script>
+<script src="js/data.js"></script>
+<script src="js/mui.min.js"></script>
+<script src="js/mobileSelect.js"></script>
+<script src="tool/tool.js"></script>
+<script>
+	         var yeardate=[];
+             var NewDate=new Date();
+                 NewDate=NewDate.getTime();
+                 for(var i=0;i<30;i++){
+                       yeardate.push(new Date(NewDate + 24*60*60*1000).format("yyyy-MM-dd"));
+                       NewDate += 86400000;
+                }
+        	 var mobileSelect1 = new MobileSelect({
+              trigger: '#start_up',
+              title: '',
+              wheels: [
+                  {data: yeardate}
+              ],
+              position:[0], //初始化定位 打开时默认选中的哪个 如果不填默认为0
+              transitionEnd:function(indexArr, data){
+//                  console.log(data);
+              },
+              callback:function(indexArr, data){
+                     $('#start_up').css('color','#000000');
+                      var curDate = new Date(data[0]);
+//                      var stop_down = new Date(curDate.getTime() + 24*60*60*1000*364).format("yyyy-MM-dd");
+                       var stop_down=endDate(data[0]);
+                     $('#stop_down').text(stop_down);
+                      
+              }
+          });
+    var user_Message = (function () {
+        var _m={};
+        var self=_m;
+        _m.init=function () {
+          var curDate = new Date();
+          var start_up = new Date(curDate.getTime() + 24*60*60*1000).format("yyyy-MM-dd");
+//          var stop_down = new Date(curDate.getTime() + 24*60*60*1000*365).format("yyyy-MM-dd");
+          var stop_down = endDate(start_up);
+          $("#start_up").text(start_up);
+          $('#stop_down').text(stop_down);
+//          self.start_Up();
+             //时间转换方法（开始）
+           
+            var priceB = sessionStorage['price'];
+            $('#priceB').text(parseInt(priceB));
+            //移动端解决fixed和input获取焦点软键盘弹出影响定位的问题
+            $('input').on('focus',function () {
+                $('.footer').hide();
+                $('.footer').css
+                $('.mui-poppicker').hide();
+            })
+            $('input').on('blur',function () {
+                $('.footer').show();
+                $('.mui-poppicker').show();
+            })
+            // 获取视图原始高度
+            var screenHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;;
+// 为window绑定resize事件
+              window.onresize = function () {
+                var nowHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+                if (nowHeight < screenHeight) {
+                    $('.footer').hide();
+                    // 将底部弹起的按钮隐藏（可使用给按钮添加相应消失类）
+                } else {
+                   $('.footer').show();
+                    // 将按钮正常显示（可使用给按钮移除相应消失类）
+               }
+            }
+            //判断是否已经阅读了条款
+            document.getElementById("readBtn").addEventListener('tap',function(){
+                $(this).toggleClass('active');
+            })
+            //查看公告信息
+            document.getElementById('middlePopover_insureNotice').addEventListener('tap', function() {
+                 $('#user_Message').hide();
+                 $('footer').hide();
+                 $('#middlePopover_insureNoticeS').show();
+                 $('#middlePopover_clauseS').hide();
+                 $('#middlePopover_specialAgreementS').hide();
+            });
+            document.getElementById('middlePopover_clause').addEventListener('tap', function() {
+                $('#user_Message').hide();
+                $('footer').hide();
+                $('#middlePopover_insureNoticeS').hide();
+                $('#middlePopover_clauseS').show();
+                $('#middlePopover_specialAgreementS').hide();
+            });
+            document.getElementById('middlePopover_specialAgreement').addEventListener('tap', function() {
+               $(window).scrollTop(0);
+                $('#user_Message').hide();
+                $('footer').hide();
+                $('#middlePopover_insureNoticeS').hide();
+                $('#middlePopover_clauseS').hide();
+                $('#middlePopover_specialAgreementS').show();
+            });
+            //关闭提示内容
+            
+            //快速支付的验证
+            document.getElementById('payMoney').addEventListener('tap', function() {
+                //验证必填项
+                var inputs=$('#user_Message input');
+                for(var i=0;i<inputs.length;i++){
+                    var val=inputs.eq(i).val();
+                    if($.trim(val)){
+                        var parents= inputs.eq(i).parent();
+                        parents.removeClass('active');
+                    }else {
+                        var parents= inputs.eq(i).parent();
+                        parents.addClass('active');
+                    }
+                }
+                //判断手机号和身份证号
+
+                var textP = $('#user_Message p.ui-alert');
+                for(var i=0;i<textP.length;i++){
+                    var texts= textP.eq(i).text();
+                    if(!$.trim(texts)){
+                        var parents= textP.eq(i).parent();
+                        parents.addClass('active');
+                    }else{
+                        var parents= textP.eq(i).parent();
+                        parents.removeClass('active');
+
+                    }
+                }
+                if($('#user_Message li').hasClass('active')){
+                    mui.toast('请确保信息填写是否完整');
+                    return;
+                }
+
+                //验证投保人身份证号
+                tool.verify($('input[name="InsuredIdNo"]'),1);
+                if($('#user_Message li').hasClass('active')){
+                    return;
+                }
+                //验证投保人身份证号
+                tool.verify($('input[name="AppliIdNo"]'),1);
+                if($('#user_Message li').hasClass('active')){
+                    return;
+                }
+                //验证手机
+                tool.verify($('.AppliIdMobile'),2);
+                if($('#user_Message li').hasClass('active')){
+                    return;
+                }
+                //请选择投保时间
+                var EndDate =$('p.EndDate').text();
+                if(!$.trim(EndDate)){
+                	mui.toast('请选择启保时间');
+                	return;
+                }
+                if(!$('#user_Message .readBtn').hasClass('active')){
+                    mui.toast('请确认读取投保申明');
+                    return;
+                }
+                //通过身份证来判断年龄是否符合
+
+                var ageMax= sessionStorage['Maxage'];
+                var ageMin = sessionStorage['Minage'];
+                var cardAge = tool.IdCard($('input[name="InsuredIdNo"]').val(),3);
+                    console.log(ageMax);
+                    console.log(ageMin);
+                    console.log(cardAge);
+                if(ageMin<=cardAge&& cardAge<=ageMax){
+                    self.xmlajax();
+                }else{
+                    mui.alert('被投保人年龄和所选产品年龄段不符','',function () {
+
+                    })
+                    return;
+                }
+
+            })
+        }
+        
+       //接口上传数据
+        _m.upData = function () {
+            var cardAge = tool.IdCard($('input[name="InsuredIdNo"]').val(),3);
+            var reqData = {
+                "RiskCode":"ECD",
+                "PayWay" : "Y", // "P","Y"
+                "OperateTimes" : new Date().format("yyyy-MM-dd hh:mm:ss"),
+                "StartDate" : $('p.StartDate').text(),
+                "EndDate" : $('p.EndDate').text(),
+                "SumAmount" : sessionStorage['SumAmount'],
+                "SumPremium" : sessionStorage['price'],
+                "BusinessNature" : tool.study_level(cardAge),
+                "RationType" : sessionStorage['RationType'],
+                
+                "AppliName" : $('input[name="AppliName"]').val(),
+                "AppliSex" : $('p.AppliSex').text()=="男"?'1':'2',
+                "AppliIdType" : "01",
+                "AppliIdNo" : $('input[name="AppliIdNo"]').val(),
+                "AppliIdMobile" : $('input[name="AppliIdMobile"]').val(),
+                
+                "InsuredName" : $('input[name="InsuredName"]').val(),
+                "InsuredIdType" : "01",
+                "InsuredIdNo" : $('input[name="InsuredIdNo"]').val(),
+                "InsuredBirthday" : $('p.InsuredBirthday').text()
+            }
+            return reqData;
+        }
+        //支付接口
+        _m.xmlajax = function () {
+            $('#loading').show();
+            var params= self.upData();
+            $.ajax({
+                url:'../insurance/api/picc/toubao.post',
+                data: JSON.stringify(params),
+                contentType: "application/json; charset=utf-8",
+                type: 'POST',
+                cache: false,
+                dataType: 'json',
+                success: function (data) {
+                    $('#loading').hide();
+                   if(data.ErrorCode==00){
+                       mui.openWindow({
+                           url: data.PayURL
+                       });
+                   }else{
+                       mui.alert('提交失败',data.ErrorMessage,function () {
+
+                       })
+                   }
+                },
+                error: function (e) {
+                    $('#loading').hide();
+                    mui.alert('提交失败','',function () {
+
+                    })
+                }
+            });
+
+        }
+        _m.close = function () {
+            $('#user_Message').show();
+            $('footer').show();
+            $('#middlePopover_insureNoticeS').hide();
+            $('#middlePopover_clauseS').hide();
+            $('#middlePopover_specialAgreementS').hide();
+        }
+        _m.jump=function (urls) {
+            mui.openWindow({
+                url: urls
+            });
+        }
+        return _m;
+
+    })();
+    user_Message.init();
+</script>
+</html>

@@ -1,0 +1,28 @@
+#guide {
+  position: absolute;
+  overflow-y: scroll;
+  width: 100%;
+  height: auto;
+  font-size: 0; }
+
+#guide img {
+  width: 100%;
+  height: auto; }
+
+#payBtn {
+  position: absolute;
+  width: 2.65rem;
+  height: 0.85rem;
+  font-size: 0;
+  left: 0.68rem;
+  bottom: 0.74rem; }
+
+#InsureBtn {
+  position: absolute;
+  width: 2.65rem;
+  height: 0.85rem;
+  font-size: 0;
+  right: 0.68rem;
+  bottom: 0.74rem; }
+
+/*# sourceMappingURL=guide.css.map */

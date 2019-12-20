@@ -1,0 +1,200 @@
+#tellPage {
+  padding-bottom: 1rem;
+  -webkit-overflow-scrolling: touch;
+  overflow-y: scroll;
+  width: 100%;
+  height: auto;
+  min-height: 100%;
+}
+#tellPage h3.title{
+  width: 100%;
+  height: auto;
+  background: #1492FF;
+  font-size: 0;
+  text-align: center;
+}
+#tellPage p.yellow{
+  font-size: 0.3rem;
+  color: #ffc700;
+  font-weight:800;
+  text-align: center;
+  padding-bottom: 0.2rem;
+}
+#tellPage .tip{
+  padding-top: 0.3rem;
+  padding-bottom: 0.4rem;
+}
+#tellPage .tip ul{
+ padding-left: 0.5rem;
+  box-sizing: border-box;
+}
+#tellPage .tip ul span{
+  font-size: 0;
+  display: block;
+  width: 0.4rem;
+  height: 0.4rem;
+  margin-right: 0.2rem;
+}
+#tellPage .tip ul span img{
+  width: 100%;
+  height: 100%;
+}
+#tellPage .tip ul p{
+  font-size: 0.3rem;
+  color: #00224a;
+}
+#tellPage .tip ul li{
+  padding-bottom: 0.2rem;
+}
+#tellPage h3.title img{
+  width: 55%;
+}
+#tellPage .banner{
+  width: 100%;
+  height: 3.57rem;
+  font-size: 0;
+}
+#tellPage .banner img{
+  width: 100%;
+  height: 100%;
+}
+#tellPage .Mediate{
+  padding: 0.33rem 0.54rem 0.3rem;
+  border-bottom: 0.01rem solid #e5e5e5;
+}
+#tellPage .Mediate h3{
+  font-size: 0.3rem;
+  color: #747474;
+  padding-bottom: 0.28rem;
+}
+#tellPage .Mediate p{
+  font-size: 0.3rem;
+  color: #000000;
+  line-height: 0.46rem;
+  letter-spacing:0.02rem;
+  text-indent: 2em;
+}
+#tellPage .Mediate_type{
+  font-size:0.3rem;
+
+}
+#tellPage .Mediate_type ul li,#tellPage .Mediate_price ul li{
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0.2rem 0.54rem;
+  border-bottom:0.01rem solid #e5e5e5;
+  line-height: 0.5rem;
+}
+#tellPage .Mediate_type ul li span{
+   display: inline-block;
+  color: #333333;
+}
+#tellPage .Mediate_type ul li p{
+  display: inline-block;
+  color:#000000;
+  width:4rem;
+  text-align: right;
+}
+#tellPage .Mediate_type ul li p.choose{
+  width: 0.4rem;
+  height: 0.4rem;
+  border: 0.01rem solid #cccccc;
+}
+#tellPage .Mediate_type ul li p.choose.check{
+  border: 0.01rem solid #000000;
+}
+#tellPage .Mediate_type ul li p.choose img{
+  width: 100%;
+  height: 100%;
+}
+#tellPage .Mediate_price{
+ font-size: 0.3rem;
+}
+#tellPage .Mediate_price ol li{
+  width: 50%;
+  box-sizing: border-box;
+  font-size: 0.3rem;
+  padding: 0.4rem 0;
+  text-align: center;
+  border-bottom: 0.01rem solid #e5e5e5;
+}
+#tellPage .Mediate_price ol li span{
+  display: inline-block;
+  padding: 0.15rem;
+  color: #848484;
+}
+#tellPage .Mediate_price ol li.active span{
+  background: #1492ff;
+  color: #ffffff;
+  border-radius: 0.1rem;
+}
+#tellPage .Mediate_price dl{
+  border-top: 0.01rem solid #e5e5e5 ;
+  border-bottom: 0.01rem solid #e5e5e5;
+}
+#tellPage .Mediate_price dl dd{
+  width: 50%;
+  text-align: center;
+  line-height: 0.8rem;
+  color: #848484;
+}
+#tellPage .Mediate_price dl dd.active{
+  background: #1492ff;
+  color: #ffffff;
+}
+#tellPage .Mediate_price h3.title{
+  color: #747474;
+  display: block;
+  background: #fafafa;
+  text-align: left;
+  box-sizing: border-box;
+  padding-left: 0.54rem;
+}
+#tellPage .Mediate_price ul li span{
+  display: inline-block;
+  color: #333333;
+  width: 3rem;
+}
+#tellPage .Mediate_price ul li p{
+  color: #1492ff;
+  font-size: 0.35rem;
+}
+#tellPage .Mediate_price ul li em{
+  font-style:normal;
+  color: #747474;
+  font-size: 0.28rem;
+}
+footer{
+   position:fixed ;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1rem;
+
+}
+footer dl{
+  width: 100%;
+}
+
+footer dd.enter{
+  width: 100%;
+}
+footer dd{
+  font-size: 0.3rem;
+  line-height: 1rem;
+  background: #eaeaea;
+  text-align: center;
+  display:block;
+}
+
+footer dd.active{
+  background: #1492ff;
+  color: #ffffff;
+  font-weight: bold;
+}
+#Insure_mode ul{
+  display: none;
+}
+#Insure_mode ul.active{
+  display: block;
+}
